@@ -64,6 +64,7 @@ public class HospedeController {
         Hospede hospede = hospedeService
                 .findById(id)
                 .map(h -> {
+
                     h.setCpf(hospedeInsertDTO.getCpf());
                     h.setNome(hospedeInsertDTO.getNome());
                     h.setEmail(hospedeInsertDTO.getEmail());
@@ -84,4 +85,5 @@ public class HospedeController {
 
         hospedeService.delete(hospede);
     }
+
 }

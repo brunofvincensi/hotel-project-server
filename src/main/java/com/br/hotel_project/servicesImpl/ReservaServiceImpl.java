@@ -81,16 +81,16 @@ public class ReservaServiceImpl implements ReservaService {
 
             for (int i = 0; i < periodo; i++){
 
-                hospedagem.diariaExtra(dataCheckIn.plusDays(i));
+                hospedagem.addDaily(dataCheckIn.plusDays(i));
             }
 
             if(LocalTime.now().isAfter(LocalTime.of(16, 30))){
 
-                hospedagem.diariaExtra(LocalDate.now());
+                hospedagem.addDaily(LocalDate.now());
             }}
 
         else {
-            hospedagem.diariaExtra(dataCheckIn);
+            hospedagem.addDaily(dataCheckIn);
         }
     }
 

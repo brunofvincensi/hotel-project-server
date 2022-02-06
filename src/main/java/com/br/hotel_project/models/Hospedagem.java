@@ -4,7 +4,6 @@ import com.br.hotel_project.enums.StatusHospedagem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -54,7 +53,7 @@ public class Hospedagem {
         this.comGaragem = comGaragem;
     }
 
-    public void diariaExtra(LocalDate dia){
+    public void addDaily(LocalDate dia){
 
         DayOfWeek dayOfWeek = dia.getDayOfWeek();
 

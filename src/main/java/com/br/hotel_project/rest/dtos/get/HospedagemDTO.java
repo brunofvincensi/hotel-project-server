@@ -28,5 +28,4 @@ public class HospedagemDTO {
         this.comGaragem = hospedagem.getComGaragem();
     }
 
-
 }

@@ -1,6 +1,5 @@
 package com.br.hotel_project.servicesImpl;
 
-import com.br.hotel_project.exceptions.HospedeException;
 import com.br.hotel_project.models.Hospede;
 import com.br.hotel_project.repositories.HospedeRepository;
 import com.br.hotel_project.services.HospedeService;
@@ -17,7 +16,6 @@ public class HospedeServiceImpl implements HospedeService {
 
     @Autowired
     private HospedeRepository repository;
-
 
     @Override
     public Optional<Hospede> findById(Integer id){

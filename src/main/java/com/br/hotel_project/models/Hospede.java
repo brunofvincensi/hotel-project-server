@@ -2,7 +2,6 @@ package com.br.hotel_project.models;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,5 +51,4 @@ public class Hospede{
         }
         return this.hospedagemList;
     }
-
 }

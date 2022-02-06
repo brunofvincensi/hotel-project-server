@@ -31,12 +31,10 @@ public class TestConfig {
             hospedeService.save(hospede1);
             hospedeService.save(hospede2);
 
-
             reservaService.checkIn(new HospedagemInsertDTO(3, true, 1));
             reservaService.checkIn(new HospedagemInsertDTO(5, false, 2));
 
             reservaService.checkOut(1);
-
             reservaService.checkIn(new HospedagemInsertDTO(6, false, 1));
         };
     }

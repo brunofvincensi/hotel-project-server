@@ -16,6 +16,4 @@ public class PagamentoDTO {
         this.extrato ="Valor total do pagamento: " + valor;
     }
 
-
-
 }

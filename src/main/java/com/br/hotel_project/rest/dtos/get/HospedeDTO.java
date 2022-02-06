@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class HospedeDTO {
 
+    private Integer id;
+    private String cpf;
     private String nome;
     private String email;
     private String telefone;
@@ -19,6 +21,8 @@ public class HospedeDTO {
     private List<HospedagemDTO> hospedagens;
 
     public HospedeDTO(Hospede hospede) {
+        this.id = hospede.getId();
+        this.cpf = hospede.getCpf();
         this.nome = hospede.getNome();
         this.email = hospede.getEmail();
         this.telefone = hospede.getTelefone();

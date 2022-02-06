@@ -2,6 +2,7 @@ package com.br.hotel_project.rest.controllers;
 
 import com.br.hotel_project.exceptions.HospedagemException;
 import com.br.hotel_project.models.Hospedagem;
+import com.br.hotel_project.rest.dtos.CheckOutDTO;
 import com.br.hotel_project.rest.dtos.get.HospedagemDTO;
 import com.br.hotel_project.rest.dtos.get.PagamentoDTO;
 import com.br.hotel_project.rest.dtos.insert.HospedagemInsertDTO;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/hospedagem")
+@CrossOrigin(origins = "http://localhost:4200")
 public class HospedagemController {
 
     @Autowired
@@ -29,10 +31,10 @@ public class HospedagemController {
         return reservaService.checkIn(hospedagemInsertDTO);
     }
 
-    @PatchMapping("/{cpf}")
-    public HospedagemDTO checkOut(@PathVariable("cpf") String cpf){
+    @PatchMapping
+    public HospedagemDTO checkOut(@RequestBody CheckOutDTO checkOutDTO){
 
-      Hospedagem hospedagem = reservaService.checkOut(cpf);
+      Hospedagem hospedagem = reservaService.checkOut(checkOutDTO.getId());
       return new HospedagemDTO(hospedagem);
     }
 

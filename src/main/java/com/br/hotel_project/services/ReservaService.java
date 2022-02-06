@@ -8,7 +8,7 @@ public interface ReservaService {
 
     Hospedagem checkIn(HospedagemInsertDTO hospedagemDTO);
 
-    Hospedagem checkOut(String cpf);
+    Hospedagem checkOut(Integer id);
 
     PagamentoDTO pay(Integer hospedagemId);
 }

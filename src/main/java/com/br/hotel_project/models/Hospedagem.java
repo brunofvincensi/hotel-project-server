@@ -3,6 +3,8 @@ package com.br.hotel_project.models;
 import com.br.hotel_project.enums.StatusHospedagem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -14,7 +16,8 @@ import java.time.LocalDate;
 @Table(name = "tb_hospedagem")
 public class Hospedagem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(generator = "increment")
     @Column(name = "id")
     private Integer id;
 

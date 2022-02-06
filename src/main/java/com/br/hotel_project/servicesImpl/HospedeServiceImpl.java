@@ -9,22 +9,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class HospedeServiceImpl implements HospedeService {
 
+
     @Autowired
     private HospedeRepository repository;
 
-    @Override
-    public Optional<Hospede> findByCpf(String cpf){
 
-       Hospede hospede = repository.findByCpf(cpf);
-       if (hospede != null){
-           return Optional.of(hospede);
-       }
-        return Optional.empty();
-    }
+    @Override
+    public Optional<Hospede> findById(Integer id){
+       return repository.findById(id);
+    };
 
     @Override
     public List<Hospede> findAll() {
@@ -34,16 +32,23 @@ public class HospedeServiceImpl implements HospedeService {
     @Override
     @Transactional
     public Hospede save(Hospede hospede){
-       if( repository.findByCpf(hospede.getCpf()) != null){
-           throw new HospedeException("cpf já cadastrado");
-       }
+        return repository.save(hospede);
+    }
 
-       return repository.save(hospede);
+    @Override
+    @Transactional
+    public Hospede update(Hospede hospede){
+        return repository.save(hospede);
     }
 
     @Override
     public List<Hospede> findExHospedes() {
-        return repository.findExHospedes();
+
+        return repository
+                .findAll()
+                .stream()
+                .filter(x -> !x.getHospedagemList().isEmpty() && x.getHospedagemAtual() == null)
+                .collect(Collectors.toList());
     }
 
     @Override

@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/hospede")
+@CrossOrigin(origins = "http://localhost:4200")
 public class HospedeController {
 
     @Autowired
@@ -29,10 +30,10 @@ public class HospedeController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{cpf}")
-    public HospedeDTO findByCpf(@PathVariable("cpf") String cpf){
+    @GetMapping("/{id}")
+    public HospedeDTO findById(@PathVariable("id") Integer id){
       return hospedeService
-              .findByCpf(cpf)
+              .findById(id)
               .map(HospedeDTO::new)
               .orElseThrow(HospedeException::new);
     }
@@ -56,28 +57,29 @@ public class HospedeController {
         return new HospedeDTO(hospede);
     }
 
-    @PutMapping("/{cpf}")
-    public HospedeDTO updateHospede(@PathVariable String cpf,
+    @PutMapping("/{id}")
+    public HospedeDTO updateHospede(@PathVariable("id") Integer id,
                                     @RequestBody @Valid HospedeInsertDTO hospedeInsertDTO){
 
         Hospede hospede = hospedeService
-                .findByCpf(cpf)
+                .findById(id)
                 .map(h -> {
+                    h.setCpf(hospedeInsertDTO.getCpf());
                     h.setNome(hospedeInsertDTO.getNome());
                     h.setEmail(hospedeInsertDTO.getEmail());
                     h.setTelefone(hospedeInsertDTO.getTelefone());
                     return h;})
                 .orElseThrow(HospedeException::new);
 
-      return new HospedeDTO(hospedeService.save(hospede));
+      return new HospedeDTO(hospedeService.update(hospede));
     }
 
-    @DeleteMapping("/{cpf}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable String cpf){
+    public void delete(@PathVariable("id") Integer id){
 
         Hospede hospede = hospedeService
-                .findByCpf(cpf)
+                .findById(id)
                 .orElseThrow(HospedeException::new);
 
         hospedeService.delete(hospede);

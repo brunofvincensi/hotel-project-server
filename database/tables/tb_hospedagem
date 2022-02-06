@@ -1,0 +1,14 @@
+CREATE TABLE public.tb_hospedagem(
+	id BIGINT NOT NULL DEFAULT 
+    nextval('public.sq_pk_hospedagem') PRIMARY KEY,
+	numero_quarto INTEGER NOT NULL,
+	data_check_in DATE NOT NULL,
+	data_check_out DATE NOT NULL,
+	valor DOUBLE PRECISION NOT NULL,
+	status VARCHAR(15) NOT NULL,
+	com_garagem BOOLEAN NOT NULL,
+	hospede_cpf VARCHAR(15) NOT NULL,
+	
+	FOREIGN KEY (hospede_cpf) REFERENCES tb_hospede(cpf)
+		ON DELETE CASCADE ON UPDATE CASCADE
+	);

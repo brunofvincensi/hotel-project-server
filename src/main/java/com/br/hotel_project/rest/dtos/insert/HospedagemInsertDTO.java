@@ -8,8 +8,6 @@ import com.br.hotel_project.annotations.Quarto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.br.CPF;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -24,14 +22,13 @@ public class HospedagemInsertDTO {
     @NotNull(message = "{campo.com-garagem.obrigatorio}")
     private Boolean comGaragem;
 
-    @CPF(message = "{campo.cpf.invalido}")
-    @NotEmpty(message = "")
-    private String cpfHospede;
+    @NotNull(message = "{campo.hospede-id.obrigatorio}")
+    private Integer hospedeId;
 
     public Hospedagem coverter(HospedeServiceImpl hospedeService) {
 
        Hospede hospede = hospedeService
-               .findByCpf(cpfHospede)
+               .findById(hospedeId)
                .orElseThrow(HospedeException::new);
 
 

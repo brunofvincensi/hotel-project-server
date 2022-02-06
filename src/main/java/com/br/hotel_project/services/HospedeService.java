@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface HospedeService {
 
-   Optional<Hospede> findByCpf(String cpf);
+    Optional<Hospede> findById(Integer id);
 
     List<Hospede> findAll();
 
@@ -15,4 +15,6 @@ public interface HospedeService {
     List<Hospede> findExHospedes();
 
     void delete(Hospede hospede);
+
+    Hospede update(Hospede hospede);
 }

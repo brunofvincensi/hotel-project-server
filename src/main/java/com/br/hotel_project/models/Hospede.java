@@ -1,6 +1,8 @@
 package com.br.hotel_project.models;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,11 @@ import java.util.List;
 public class Hospede{
 
     @Id
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(generator = "increment")
+    @Column(name = "id")
+    private Integer id;
+
     @Column(name = "cpf", length = 15)
     private String cpf;
 

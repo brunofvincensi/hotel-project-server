@@ -29,7 +29,7 @@ public class ReservaServiceImpl implements ReservaService {
     public Hospedagem checkIn(HospedagemInsertDTO hospedagemDTO) {
 
         Hospede hospede =  hospedeService
-                .findByCpf(hospedagemDTO.getCpfHospede())
+                .findById(hospedagemDTO.getHospedeId())
                 .orElseThrow(HospedeException::new);
 
         if(hospede.getHospedagemAtual() == null){
@@ -49,10 +49,10 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     @Transactional
-    public Hospedagem checkOut(String cpf) {
+    public Hospedagem checkOut(Integer id) {
 
         Hospede hospede = hospedeService
-                .findByCpf(cpf)
+                .findById(id)
                 .orElseThrow(HospedeException::new);
 
         Hospedagem hospedagemAtual = hospede.getHospedagemAtual();

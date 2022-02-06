@@ -1,6 +1,6 @@
 # hotel-project-server
 
-- Aplicação back do teste prático feita em SpringBoot(Java)
+- Aplicação back do teste prático feita em SpringBoot(Java)</br></br>
 - URL da API na nuvem : https://aw-hotel-api.herokuapp.com
 - Swagger da API : https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
 
@@ -51,11 +51,22 @@ Pré-requisitos:
 
 ```bash
 
-# abrir o projeto no Intellij
+# Abrir o projeto no Intellij
 
-# baixar as dependência no pom.xml
+# Baixar as dependência no pom.xml
 
 # Ir no application.properties e alterar o perfil ativo para development ou homologation
 # sendo o development para usar com o postgresql local e o homologation o banco h2
 ```
-![UML]()
+![UML](https://github.com/Bruno-ferrariv/hotel-project-server/blob/main/images/application.properties-image.JPG)
+
+```bash
+# Se optar pelo development, utilize o script no caminho a seguir e altere a senha no arquivo properties
+```
+## [SCRIPT-DB](https://github.com/Bruno-ferrariv/hotel-project-server/blob/main/database/DDL_Hotel_Project)
+![UML](https://github.com/Bruno-ferrariv/hotel-project-server/blob/main/images/development-image.JPG)
+
+```bash
+# Por fim rode o projeto na classe HotelProjectApplication ou pelo terminal com o seguinte comando:
+ ./mvnw spring-boot:run
+```

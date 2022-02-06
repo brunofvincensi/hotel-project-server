@@ -25,20 +25,22 @@
 
 ## Funcionalidades
 
- CRUD para o cadastro de hóspedes;
- - Create {baseUrl}/api/hospede (POST) </br>
- - Read {baseUrl}/api/hospede (GET) </br>
- - Update {baseUrl}/api/hospede:{} (PUT) </br>
+ CRUD para o cadastro de hóspedes
+ - Create  {baseUrl}/api/hospede (POST) </br>
+ - Read  {baseUrl}/api/hospede (GET) </br>
+ - Update  {baseUrl}/api/hospede:{} (PUT) </br>
 
  Permitir realizar o checkin e checkout
-- Check in {baseUrl}/api/hospedagem (POST) </br>
-- Check out {baseUrl}/api/hospedagem (PATCH) </br>
+- Check in  {baseUrl}/api/hospedagem (POST) 
+- Check out  {baseUrl}/api/hospedagem (PATCH) </br>
+
  Permitir consultar ex-hóspedes
-- {baseUrl}/api/hospede/ex_hospedes (GET)
- Permitir realizar o pgamento
-- {baseUrl}/api/hospedagem/pay (PATCH)
+- {baseUrl}/api/hospede/ex_hospedes (GET)</br>
+
+Permitir realizar o pgamento
+- {baseUrl}/api/hospedagem/pay (PATCH)</br>
  
-{baseUrl}/
+
 
 ## Como rodar local
 Pré-requisitos: 

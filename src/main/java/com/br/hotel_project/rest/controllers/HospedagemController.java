@@ -38,18 +38,18 @@ public class HospedagemController {
       return new HospedagemDTO(hospedagem);
     }
 
-    @PatchMapping("/pay/{id}")
+    @PatchMapping("/pay/{hospedagemId}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public PagamentoDTO pay(@PathVariable("id") Integer id){
-      return reservaService.pay(id);
+    public PagamentoDTO pay(@PathVariable("hospedagemId") Integer hospedagemId){
+      return reservaService.pay(hospedagemId);
     }
 
-    @PutMapping("{id}")
-    public HospedagemDTO updateHospedagem(@PathVariable("id") Integer id,
+    @PutMapping("{hospedagemId}")
+    public HospedagemDTO updateHospedagem(@PathVariable("hospedagemId") Integer hospedagemId,
                                           @RequestBody HospedagemInsertDTO hospedagemInsertDTO ){
 
         Hospedagem hospedagem = hospedagemService
-                .findById(id)
+                .findById(hospedagemId)
                 .map(h -> {
                     h.setNumeroQuarto(hospedagemInsertDTO.getNumeroQuarto());
                     h.setComGaragem(hospedagemInsertDTO.getComGaragem());
@@ -61,11 +61,11 @@ public class HospedagemController {
         return new HospedagemDTO(hospedagem);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{hospedagemId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteHospedagem(@PathVariable("id") Integer id){
+    public void deleteHospedagem(@PathVariable("hospedagemId") Integer hospedagemId){
       Hospedagem hospedagem =  hospedagemService
-              .findById(id)
+              .findById(hospedagemId)
               .orElseThrow(HospedagemException::new);
 
         hospedagemService.delete(hospedagem);

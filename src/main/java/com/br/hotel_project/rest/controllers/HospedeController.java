@@ -30,10 +30,10 @@ public class HospedeController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
-    public HospedeDTO findById(@PathVariable("id") Integer id){
+    @GetMapping("/{hospedeId}")
+    public HospedeDTO findById(@PathVariable("hospedeId") Integer hospedeId){
       return hospedeService
-              .findById(id)
+              .findById(hospedeId)
               .map(HospedeDTO::new)
               .orElseThrow(HospedeException::new);
     }
@@ -57,12 +57,12 @@ public class HospedeController {
         return new HospedeDTO(hospede);
     }
 
-    @PutMapping("/{id}")
-    public HospedeDTO updateHospede(@PathVariable("id") Integer id,
+    @PutMapping("/{hospedeId}")
+    public HospedeDTO updateHospede(@PathVariable("hospedeId") Integer hospedeId,
                                     @RequestBody @Valid HospedeInsertDTO hospedeInsertDTO){
 
         Hospede hospede = hospedeService
-                .findById(id)
+                .findById(hospedeId)
                 .map(h -> {
 
                     h.setCpf(hospedeInsertDTO.getCpf());
@@ -75,12 +75,12 @@ public class HospedeController {
       return new HospedeDTO(hospedeService.update(hospede));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{hospedeId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Integer id){
+    public void delete(@PathVariable("hospedeId") Integer hospedeId){
 
         Hospede hospede = hospedeService
-                .findById(id)
+                .findById(hospedeId)
                 .orElseThrow(HospedeException::new);
 
         hospedeService.delete(hospede);

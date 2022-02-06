@@ -41,7 +41,7 @@ public class Hospedagem {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "hospede_cpf", nullable = false)
+    @JoinColumn(name = "hospede_id", nullable = false)
     private Hospede hospede;
 
     public Hospedagem(Integer numeroQuarto, Hospede hospede, Boolean comGaragem){

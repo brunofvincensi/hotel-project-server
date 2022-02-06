@@ -12,31 +12,28 @@ CREATE DATABASE hotel_project_db
     CONNECTION LIMIT = -1;
 	
 	CREATE TABLE tb_hospede(
-	cpf VARCHAR(15) NOT NULL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+	id INTEGER NOT NULL PRIMARY KEY,	
+	cpf VARCHAR(15) NOT NULL UNIQUE,
+        nome VARCHAR(50) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	telefone VARCHAR(50) NOT NULL,
-	hospedagem_id BIGINT
+	hospedagem_id INTEGER
 	);
 	
-	CREATE SEQUENCE public.sq_pk_hospedagem START 1;
-
-	CREATE TABLE public.tb_hospedagem(
-	id BIGINT NOT NULL DEFAULT 
-    nextval('public.sq_pk_hospedagem') PRIMARY KEY,
+	CREATE TABLE tb_hospedagem(
+	id INTEGER NOT NULL PRIMARY KEY,
 	numero_quarto INTEGER NOT NULL,
 	data_check_in DATE NOT NULL,
-	data_check_out DATE NOT NULL,
+	data_check_out DATE,
 	valor DOUBLE PRECISION NOT NULL,
 	status VARCHAR(15) NOT NULL,
 	com_garagem BOOLEAN NOT NULL,
-	hospede_cpf VARCHAR(15) NOT NULL,
+	hospede_id INTEGER NOT NULL,
 	
-	FOREIGN KEY (hospede_cpf) REFERENCES tb_hospede(cpf)
+	FOREIGN KEY (hospede_id) REFERENCES tb_hospede(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
 	);
 	
 	 SELECT * FROM tb_hospedagem;
 	
 	 SELECT * FROM tb_hospede;
-	

@@ -1,7 +1,8 @@
 CREATE TABLE tb_hospede(
-	cpf VARCHAR(15) NOT NULL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+	id INTEGER NOT NULL PRIMARY KEY,	
+	cpf VARCHAR(15) NOT NULL UNIQUE,
+        nome VARCHAR(50) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	telefone VARCHAR(50) NOT NULL,
-	hospedagem_id BIGINT
+	hospedagem_id INTEGER
 	);

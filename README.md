@@ -24,6 +24,19 @@
 - Springfox Swagger
 
 ## Funcionalidades
+
+ CRUD para o cadastro de hóspedes;
+ - Create {baseUrl}/api/hospede (POST) </br>
+ - Read {baseUrl}/api/hospede (GET) </br>
+ - Update {baseUrl}/api/hospede:{} (PUT) </br>
+
+ Permitir realizar o checkin e checkout
+- Check in {baseUrl}/api/hospedagem (POST) </br>
+- Check out {baseUrl}/api/hospedagem (PATCH) </br>
+ Permitir consultar ex-hóspedes
+- {baseUrl}/api/hospede/ex_hospedes (GET)
+ Permitir realizar o pgamento
+- {baseUrl}/api/hospedagem/pay (PATCH)
  
 {baseUrl}/
 
@@ -32,7 +45,7 @@ Pré-requisitos:
 - Java 8
 - Intellij IDE
 - Postgresql(opcional) </br></br>
-- OBS.: Tive que alterar para o java 8 devido a ser compativel com o deploy na nuvem porém o código não alterou
+- OBS.: Tive que alterar para o java 8 devido a ser compativel com o deploy na nuvem porém o código não alterou.
 
 ```bash
 

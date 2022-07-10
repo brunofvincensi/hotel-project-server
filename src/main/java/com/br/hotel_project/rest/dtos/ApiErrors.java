@@ -1,4 +1,4 @@
-package com.br.hotel_project;
+package com.br.hotel_project.rest.dtos;
 
 import lombok.Data;
 

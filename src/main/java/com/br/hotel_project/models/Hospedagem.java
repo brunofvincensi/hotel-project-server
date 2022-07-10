@@ -2,8 +2,11 @@ package com.br.hotel_project.models;
 
 import com.br.hotel_project.enums.StatusHospedagem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -59,28 +62,11 @@ public class Hospedagem {
 
         boolean isWeekend = dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY;
 
-        if(!this.comGaragem){
-
-        if(isWeekend){
-
-            this.valor += 150.0;
+        if(this.comGaragem){
+            this.valor += isWeekend ? 170.0 : 135.0;
+        } else {
+            this.valor +=  isWeekend ?  150.0 : 120.0;
         }
-        else {
-            this.valor += 120.0;
-        }
-        }
-
-        else{
-            if(isWeekend){
-
-                this.valor += 170.0;
-            }
-            else {
-                this.valor += 135.0;
-            }
-
-        }
-
     }
 
 }

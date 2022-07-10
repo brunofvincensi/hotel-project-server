@@ -1,7 +1,10 @@
 package com.br.hotel_project.models;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,7 @@ public class Hospede{
     @JoinColumn(name = "hospedagem_id")
     private Hospedagem hospedagemAtual;
 
-    @OneToMany(mappedBy = "hospede", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "hospede", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Hospedagem> hospedagemList;
 
     public Hospede(String cpf, String nome, String email, String telefone) {

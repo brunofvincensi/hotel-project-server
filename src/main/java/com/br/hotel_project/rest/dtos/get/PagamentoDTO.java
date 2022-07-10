@@ -12,7 +12,6 @@ public class PagamentoDTO {
     private String extrato;
 
     public PagamentoDTO(Double valor){
-
         this.extrato ="Valor total do pagamento: " + valor;
     }
 

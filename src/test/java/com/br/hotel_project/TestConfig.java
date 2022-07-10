@@ -1,4 +1,4 @@
-package com.br.hotel_project.config;
+package com.br.hotel_project;
 
 import com.br.hotel_project.annotations.Test;
 import com.br.hotel_project.models.Hospede;

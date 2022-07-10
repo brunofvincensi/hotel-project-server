@@ -8,21 +8,24 @@ import com.br.hotel_project.rest.dtos.get.PagamentoDTO;
 import com.br.hotel_project.rest.dtos.insert.HospedagemInsertDTO;
 import com.br.hotel_project.servicesImpl.HospedagemServiceImpl;
 import com.br.hotel_project.servicesImpl.ReservaServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/hospedagem")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("http://localhost:4200")
 public class HospedagemController {
 
-    @Autowired
-    private HospedagemServiceImpl hospedagemService;
+    private final HospedagemServiceImpl hospedagemService;
 
-    @Autowired
-    private ReservaServiceImpl reservaService;
+    private final ReservaServiceImpl reservaService;
+
+    public HospedagemController(HospedagemServiceImpl hospedagemService, ReservaServiceImpl reservaService) {
+        this.hospedagemService = hospedagemService;
+        this.reservaService = reservaService;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -53,7 +56,6 @@ public class HospedagemController {
                 .map(h -> {
                     h.setNumeroQuarto(hospedagemInsertDTO.getNumeroQuarto());
                     h.setComGaragem(hospedagemInsertDTO.getComGaragem());
-
                     return h;
                 })
                 .orElseThrow(HospedagemException::new);

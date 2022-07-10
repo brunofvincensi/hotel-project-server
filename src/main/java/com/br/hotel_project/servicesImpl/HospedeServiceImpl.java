@@ -3,9 +3,9 @@ package com.br.hotel_project.servicesImpl;
 import com.br.hotel_project.models.Hospede;
 import com.br.hotel_project.repositories.HospedeRepository;
 import com.br.hotel_project.services.HospedeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -13,9 +13,11 @@ import java.util.stream.Collectors;
 @Service
 public class HospedeServiceImpl implements HospedeService {
 
+    private final HospedeRepository repository;
 
-    @Autowired
-    private HospedeRepository repository;
+    public HospedeServiceImpl(HospedeRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public Optional<Hospede> findById(Integer id){

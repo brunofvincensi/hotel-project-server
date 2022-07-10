@@ -5,20 +5,22 @@ import com.br.hotel_project.models.Hospede;
 import com.br.hotel_project.rest.dtos.get.HospedeDTO;
 import com.br.hotel_project.rest.dtos.insert.HospedeInsertDTO;
 import com.br.hotel_project.servicesImpl.HospedeServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/hospede")
-@CrossOrigin(origins = "http://localhost:4200")
 public class HospedeController {
 
-    @Autowired
-    private HospedeServiceImpl hospedeService;
+    private final HospedeServiceImpl hospedeService;
+
+    public HospedeController(HospedeServiceImpl hospedeService) {
+        this.hospedeService = hospedeService;
+    }
 
     @GetMapping
     public List<HospedeDTO> findAll(){
@@ -64,12 +66,12 @@ public class HospedeController {
         Hospede hospede = hospedeService
                 .findById(hospedeId)
                 .map(h -> {
-
                     h.setCpf(hospedeInsertDTO.getCpf());
                     h.setNome(hospedeInsertDTO.getNome());
                     h.setEmail(hospedeInsertDTO.getEmail());
                     h.setTelefone(hospedeInsertDTO.getTelefone());
-                    return h;})
+                    return h;
+                })
                 .orElseThrow(HospedeException::new);
 
       return new HospedeDTO(hospedeService.update(hospede));

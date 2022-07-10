@@ -2,6 +2,7 @@ package com.br.hotel_project.annotations;
 
 import com.br.hotel_project.servicesImpl.HospedeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

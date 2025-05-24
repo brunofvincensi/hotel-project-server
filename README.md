@@ -1,6 +1,7 @@
 # hotel-project-server
 
 - System for hotel management
+- Server application
 - Cloud API URL: https://aw-hotel-api.herokuapp.com
 - API Swagger: https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
 

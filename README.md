@@ -2,6 +2,7 @@
 
 - System for hotel management
 - Server application
+- Client application: https://github.com/brunofvincensi/hotel-project-client
 - Cloud API URL: https://aw-hotel-api.herokuapp.com
 - API Swagger: https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
 

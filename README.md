@@ -4,7 +4,9 @@
 - URL da API na nuvem : https://aw-hotel-api.herokuapp.com
 - Swagger da API : https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
 
-![UML]
+## MER Diagram
+
+![UML](https://github.com/brunofvincensi/hotel-project-server/blob/main/database/MER_hotel_project.JPG)
 
 ## Tecnologias utilizadas
 - Java 11

@@ -1,41 +1,40 @@
 # hotel-project-server
 
-- Sistema para gerenciamento de hotel
-- URL da API na nuvem : https://aw-hotel-api.herokuapp.com
-- Swagger da API : https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
+- System for hotel management
+- Cloud API URL: https://aw-hotel-api.herokuapp.com
+- API Swagger: https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
 
-## Tecnologias utilizadas
+## Technologies Used
 - Java 11
 - Maven
 - Spring Boot
 - Postgresql
-- Banco H2
-- GIT
+- H2 Database
 
-## Dependências
+## Dependencies
 - Spring Data JPA
 - Spring Validation
 - Spring Web
 - Spring Devtools
-- Postgesql | H2
+- PostgreSQL | H2
 - Lombok
 - Springfox Swagger
 
-## Funcionalidades
+## Features
 
- CRUD para o cadastro de hóspedes
- - Create  {baseUrl}/api/hospede (POST) </br>
- - Read  {baseUrl}/api/hospede (GET) </br>
- - Update  {baseUrl}/api/hospede:{} (PUT) </br>
+CRUD for guest registration
+- Create  {baseUrl}/api/hospede (POST) </br>
+- Read  {baseUrl}/api/hospede (GET) </br>
+- Update  {baseUrl}/api/hospede:{} (PUT) </br>
 
- Permitir realizar o checkin e checkout
+Check-in and Check-out management
 - Check in  {baseUrl}/api/hospedagem (POST) 
 - Check out  {baseUrl}/api/hospedagem (PATCH) </br>
 
- Permitir consultar ex-hóspedes
+View former guests
 - {baseUrl}/api/hospede/ex_hospedes (GET)</br>
 
-Permitir realizar o pgamento
+Payment processing
 - {baseUrl}/api/hospedagem/pay (PATCH)</br>
 
 
@@ -44,33 +43,34 @@ Permitir realizar o pgamento
 ![UML](https://github.com/brunofvincensi/hotel-project-server/blob/main/database/MER_hotel_project.JPG)
 
 
-## Como rodar local
+## How to Run Locally
 Pré-requisitos: 
-- Java 8
-- Intellij IDE
-- Postgresql(opcional) </br></br>
-- OBS.: Tive que alterar para o java 8 devido a ser compativel com o deploy na nuvem porém o código não alterou.
+- Java 11
+- Intellij IDE (or other)
+- Postgresql (optional) </br></br>
 
 ```bash
-# Baixe ou clone este repositório usando
+# Download or clone this repository:
 https://github.com/Bruno-ferrariv/hotel-project-server
 
-# Abrir o projeto no Intellij
+# Open the project in IntelliJ
 
-# Baixar as dependência no pom.xml
+# Download the dependencies listed in pom.xml
 
-# Ir no application.properties e alterar o perfil ativo para development ou homologation
-# sendo o development para usar com o postgresql local e o homologation o banco h2
+# Go to application.properties and set the active profile to 'development' or 'homologation'
+# Use 'development' for local PostgreSQL
+# Use 'homologation' for in-memory H2 database
 ```
-![UML](https://github.com/Bruno-ferrariv/hotel-project-server/blob/main/images/application.properties-image.JPG)
+![UML](https://github.com/brunofvincensi/hotel-project-server/blob/main/images/application.properties-image.JPG)
 
 ```bash
-# Se optar pelo development, utilize o script no caminho a seguir e altere a senha no arquivo properties
+# If you choose the 'development' profile, use the script below and update the password in the properties file:
 ```
 ## [SCRIPT-DB](https://github.com/Bruno-ferrariv/hotel-project-server/blob/main/database/DDL_Hotel_Project)
-![UML](https://github.com/Bruno-ferrariv/hotel-project-server/blob/main/images/development-image.JPG)
+![UML](https://github.com/brunofvincensi/hotel-project-server/blob/main/images/development-image.JPG)
 
 ```bash
-# Por fim rode o projeto na classe HotelProjectApplication ou pelo terminal com o seguinte comando:
+# Finally, run the project using the HotelProjectApplication class
+# Or run it from the terminal with the following command:
  ./mvnw spring-boot:run
 ```

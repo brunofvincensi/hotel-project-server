@@ -1,6 +1,6 @@
 # hotel-project-server
 
-- Aplicação back do teste prático feita em SpringBoot(Java)</br></br>
+- Sistema para gerenciamento de hotel
 - URL da API na nuvem : https://aw-hotel-api.herokuapp.com
 - Swagger da API : https://aw-hotel-api.herokuapp.com/swagger-ui/index.html#
 
